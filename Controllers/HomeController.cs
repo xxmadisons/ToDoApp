@@ -1,21 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using ToDoApp.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using ToDoTasks.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace ToDoApp.Controllers
+namespace ToDoTasks.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private ToDoContext daContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        // Constructor
+        public HomeController(ToDoContext someName)
         {
-            _logger = logger;
+            daContext = someName;
         }
 
         public IActionResult Index()
@@ -23,15 +25,77 @@ namespace ToDoApp.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult ToDo()
         {
+            ViewBag.Categories = daContext.Categories.ToList();
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult ToDo(ToDoResponse tdr)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (ModelState.IsValid)
+            {
+                daContext.Add(tdr);
+                daContext.SaveChanges();
+
+                return View("Confirmation", tdr);
+            }
+            else // if invalid
+            {
+                ViewBag.Categories = daContext.Categories.ToList();
+                return View(tdr);
+            }
         }
+
+
+        [HttpGet]
+        public IActionResult ToDoList()
+        {
+            var entries = daContext.Responses
+                .Include(x => x.Category)
+                .ToList();
+
+            return View(entries);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int taskid)
+        {
+            ViewBag.Categories = daContext.Categories.ToList();
+
+            var entry = daContext.Responses.Single(x => x.TaskID == taskid);
+
+            return View("ToDoEntry", entry);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(ToDoResponse tdr)
+        {
+            daContext.Update(tdr);
+            daContext.SaveChanges();
+
+            return RedirectToAction("ToDoList");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int taskid)
+        {
+            var entry = daContext.Responses.Single(x => x.TaskID == taskid);
+
+            return View(entry);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(ToDoResponse tdr)
+        {
+            daContext.Responses.Remove(tdr);
+            daContext.SaveChanges();
+
+            return RedirectToAction("ToDoList");
+        }
+
+
     }
 }

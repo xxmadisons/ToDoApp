@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Enter To-Do List";
+}
+
+@model ToDoGroupProject.Models.ToDoResponse
+
+<h1>@ViewData["Title"]</h1>
+<br />
+
+<div>
+    <form method="post">
+
+        <div asp-validation-summary="All"></div>
+
+        <label asp-for="Task">Task:</label>
+        <input asp-for="Title" />
+        <br />
+
+        <label asp-for="DueDate">Due Date:</label>
+        <input asp-for="DueDate" />
+        <br />
+
+        <label asp-for="Quadrant">Quadrant:</label>
+        <input asp-for="Quadrant" />
+        <br />
+
+
+        <label asp-for="CategoryID">Category:</label>
+        <select id="Category" name="Category">
+            <option value="Home">Home</option>
+            <option value="School">School</option>
+            <option value="Work">Work</option>
+            <option value="Church">Church</option>
+
+        </select>
+
+
+        <label asp-for="Completed">Completed:</label>
+        <select asp-for="Completed">
+            <option value="True">Yes</option>
+            <option value="False">No</option>
+        </select>
+        <br />
+
+
+
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+</div>
+
+
+
+}
