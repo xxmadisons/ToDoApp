@@ -35,7 +35,6 @@ namespace ToDoApp.Models
                        Quadrant = 1,
                        Completed = false,
                    }
-
            );
         }
     }
