@@ -29,7 +29,7 @@ namespace ToDoApp.Controllers
         public IActionResult ToDo()
         {
             ViewBag.Categories = daContext.Categories.ToList();
-            return View();
+            return View("ToDoEntry");
         }
 
         [HttpPost]
@@ -45,12 +45,12 @@ namespace ToDoApp.Controllers
             else // if invalid
             {
                 ViewBag.Categories = daContext.Categories.ToList();
-                return View(tdr);
+                return View("ToDoEntry");
             }
         }
 
 
-        [HttpGet]
+        //[HttpGet]
         public IActionResult ToDoList()
         {
             var entries = daContext.Responses
