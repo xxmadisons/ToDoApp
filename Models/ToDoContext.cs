@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 
-namespace ToDoTasks.Models
+namespace ToDoApp.Models
 {
     public class ToDoContext : DbContext
     {

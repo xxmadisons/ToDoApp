@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ToDoTasks.Models
+namespace ToDoApp.Models
 {
     public class ToDoResponse
     {

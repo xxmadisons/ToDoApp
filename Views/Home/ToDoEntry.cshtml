@@ -2,7 +2,7 @@
     ViewData["Title"] = "Enter To-Do List";
 }
 
-@model ToDoGroupProject.Models.ToDoResponse
+@model ToDoApp.Models.ToDoResponse
 
 <h1>@ViewData["Title"]</h1>
 <br />
@@ -13,7 +13,7 @@
         <div asp-validation-summary="All"></div>
 
         <label asp-for="Task">Task:</label>
-        <input asp-for="Title" />
+        <input asp-for="Task" />
         <br />
 
         <label asp-for="DueDate">Due Date:</label>

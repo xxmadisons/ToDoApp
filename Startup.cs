@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ToDoApp.Models;
 
 namespace ToDoApp
 {
@@ -24,6 +26,11 @@ namespace ToDoApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<ToDoContext>(options =>
+           {
+               options.UseSqlite(Configuration["ConnectionStrings:BlahConnection"]);
+           }
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

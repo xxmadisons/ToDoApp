@@ -5,10 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ToDoTasks.Models;
+using ToDoApp.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ToDoTasks.Controllers
+namespace ToDoApp.Controllers
 {
     public class HomeController : Controller
     {
