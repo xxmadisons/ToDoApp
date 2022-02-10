@@ -85,23 +85,26 @@
     <tbody>
         @foreach (var x in Model)
         { 
-            <tr>
-                <th scope="row" class="thead-dark">Important</th>
-                <td>Quad 1</td>
-                <td><a asp-controller="Home" asp-action="Edit" asp-route-applicationid="@x.TaskID">Edit</a></td>
-                <td><a asp-controller="Home" asp-action="Delete" asp-route-applicationid="@x.TaskID">Delete</a></td>
-                <td>Quad 2</td>
-                <td><a asp-controller="Home" asp-action="Edit" asp-route-applicationid="@x.TaskID">Edit</a></td>
-                <td><a asp-controller="Home" asp-action="Delete" asp-route-applicationid="@x.TaskID">Delete</a></td>
-            </tr>
+        <tr>
+            <th scope="row" class="thead-dark">Important</th>
+            <td>Quad 1</td>
+            <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a></td>
+            <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a></td>
+
+            
+
+            <td>Quad 2</td>
+            <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a></td>
+            <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a></td>
+        </tr>
         <tr>
             <th scope="row" class="thead-dark">Not Important</th>
             <td>Quad 3</td>
-            <td><a asp-controller="Home" asp-action="Edit" asp-route-applicationid="@x.TaskID">Edit</a></td>
-            <td><a asp-controller="Home" asp-action="Delete" asp-route-applicationid="@x.TaskID">Delete</a></td>
+            <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a></td>
+            <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a></td>
             <td>Quad 4</td>
-            <td><a asp-controller="Home" asp-action="Edit" asp-route-applicationid="@x.TaskID">Edit</a></td>
-            <td><a asp-controller="Home" asp-action="Delete" asp-route-applicationid="@x.TaskID">Delete</a></td>
+            <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a></td>
+            <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a></td>
         </tr>
         }
     </tbody>
