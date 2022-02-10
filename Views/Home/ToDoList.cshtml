@@ -36,38 +36,61 @@
 <h1>@ViewData["Title"]</h1>
 <br />
 
-<div class="container">
-    <div class="row">
-        <div class="col-3">
-            :)
+@*<div class="container border">
+        <div class="row border">
+            <div class="col-3 border ">
+                :)
+            </div>
+            <div class="col border">
+                URGENT
+            </div>
+            <div class="col border">
+                NOT URGENT
+            </div>
         </div>
-        <div class="col">
-            URGENT
+        <div class="row border">
+            <div class="col-3 border">
+                IMPORTANT
+            </div>
+            <div class="col border">
+                Quad 1: Blah
+            </div>
+            <div class="col border">
+                Quad 2: Yaddah
+            </div>
         </div>
-        <div class="col">
-            NOT URGENT
+        <div class="row border">
+            <div class="col-3">
+                NOT IMPORTANT
+            </div>
+            <div class="col border">
+                Quad 3: Hello
+            </div>
+            <div class="col border">
+                Quad 4: Your Mom
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-3">
-            IMPORTANT
-        </div>
-        <div class="col">
-            Quad 1: Blah
-        </div>
-        <div class="col">
-            Quad 2: Yaddah
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-3">
-            NOT IMPORTANT
-        </div>
-        <div class="col">
-            Quad 3: Hello
-        </div>
-        <div class="col">
-            Quad 4: Your Mom
-        </div>
-    </div>
-</div>
+    </div>*@
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col" class="thead-dark"> :) </th>
+            <th scope="col">Urgent</th>
+            <th scope="col">Not Urgent</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row" class="thead-dark">Important</th>
+            <td>Quad 1</td>
+            <td>Quad 2</td>
+        </tr>
+        <tr>
+            <th scope="row" class="thead-dark">Not Important</th>
+            <td>Quad 3</td>
+            <td>Quad 4</td>
+        </tr>
+    </tbody>
+</table>
