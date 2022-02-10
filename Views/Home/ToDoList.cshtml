@@ -36,6 +36,69 @@
 <h1>@ViewData["Title"]</h1>
 <br />
 
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col" class="thead-dark"> </th>
+            <th scope="col">Urgent</th>
+            <th scope="col">Not Urgent</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <th scope="row" class="thead-dark"></th>
+                <th class="bold thead-dark">Quad 1</th>
+                <th class="bold thead-dark">Quad 2</th>
+            </tr>
+            <tr>
+                <th scope="row" class="thead-dark">Important</th>
+                @* Quad 1 *@
+                <td>
+                    <p>@x.Task</p>
+                    <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a>
+                    <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a>
+                </td>
+
+                @* Quad 2 *@
+                <td>
+                    <p>@x.Task</p>
+                    <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a>
+                    <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" class="thead-dark"></th>
+                <th class="thead-dark">Quad 3</th>
+                <th class="thead-dark">Quad 4</th>
+            </tr>
+            <tr>
+                <th scope="row" class="thead-dark">Not Important</th>
+                @* Quad 3 *@
+                <td>
+                    <p>@x.Task</p>
+                    <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a>
+                    <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a>
+                </td>
+
+                @* Quad 4 *@
+                <td>
+                    <p>@x.Task</p>
+                    <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a>
+                    <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
 @*<div class="container border">
         <div class="row border">
             <div class="col-3 border ">
@@ -71,41 +134,3 @@
             </div>
         </div>
     </div>*@
-
-
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th scope="col" class="thead-dark"> :) </th>
-            <th scope="col">Urgent</th>
-            <th scope="col">Not Urgent</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @foreach (var x in Model)
-        { 
-        <tr>
-            <th scope="row" class="thead-dark">Important</th>
-            <td>Quad 1</td>
-            <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a></td>
-            <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a></td>
-
-            
-
-            <td>Quad 2</td>
-            <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a></td>
-            <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a></td>
-        </tr>
-        <tr>
-            <th scope="row" class="thead-dark">Not Important</th>
-            <td>Quad 3</td>
-            <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a></td>
-            <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a></td>
-            <td>Quad 4</td>
-            <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a></td>
-            <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a></td>
-        </tr>
-        }
-    </tbody>
-</table>
