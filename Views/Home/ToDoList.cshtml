@@ -48,8 +48,7 @@
     </thead>
 
     <tbody>
-        @foreach (var x in Model)
-        {
+
             <tr>
                 <th scope="row" class="thead-dark"></th>
                 <th class="bold thead-dark">Quad 1</th>
@@ -58,19 +57,24 @@
             <tr>
                 <th scope="row" class="thead-dark">Important</th>
                 @* Quad 1 *@
-                <td>
-                    <p>@x.Task</p>
-                    <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a>
-                    <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a>
-                </td>
-
+                @foreach (var x in Model.Where(n => n.Quadrant == "1"))
+                {
+                    <td>
+                        <p>@x.Task</p>
+                        <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a>
+                        <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a>
+                    </td>
+                }
                 @* Quad 2 *@
-                <td>
+                @foreach (var x in Model.Where(n => n.Quadrant == "2"))
+                {
+                    <td >
                     <p>@x.Task</p>
                     <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a>
                     <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a>
-                </td>
-            </tr>
+                    </td>
+                </tr>
+                }
             <tr>
                 <th scope="row" class="thead-dark"></th>
                 <th class="thead-dark">Quad 3</th>
@@ -79,20 +83,24 @@
             <tr>
                 <th scope="row" class="thead-dark">Not Important</th>
                 @* Quad 3 *@
-                <td>
-                    <p>@x.Task</p>
-                    <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a>
-                    <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a>
-                </td>
-
+                @foreach (var x in Model.Where(n => n.Quadrant == "3"))
+                {
+                    <td>
+                        <p>@x.Task</p>
+                        <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a>
+                        <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a>
+                    </td>
+                }
                 @* Quad 4 *@
-                <td>
-                    <p>@x.Task</p>
-                    <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a>
-                    <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a>
-                </td>
-            </tr>
-        }
+                @foreach (var x in Model.Where(n => n.Quadrant == "4"))
+                {
+                    <td>
+                        <p>@x.Task</p>
+                        <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a>
+                        <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a>
+                    </td>
+                }
+                </tr>
     </tbody>
 </table>
 
